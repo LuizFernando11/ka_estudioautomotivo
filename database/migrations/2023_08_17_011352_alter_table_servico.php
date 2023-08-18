@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableVeiculo extends Migration
+class AlterTableServico extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateTableVeiculo extends Migration
      */
     public function up()
     {
-        Schema::create('veiculos', function (Blueprint $table) {
-            $table->id();
-            $table->string('tipo');
-            $table->string('modelo');
-            $table->string('placa');
-            $table->timestamps();
+        Schema::table('servico', function (Blueprint $table) {
+            //
         });
     }
 
@@ -29,6 +25,8 @@ class CreateTableVeiculo extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('veiculos');
+        Schema::table('servico', function (Blueprint $table) {
+            //
+        });
     }
 }

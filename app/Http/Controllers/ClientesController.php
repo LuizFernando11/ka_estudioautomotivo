@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Veiculo;
+use App\Models\Clientes;
 use Illuminate\Http\Request;
 
-class VeiculoController extends Controller
+class ClientesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class VeiculoController extends Controller
      */
     public function index()
     {
-        //
+        $clientes = Clientes::all();
+        return view("cliente.index", ['clientes' => $clientes]);
     }
 
     /**
@@ -41,10 +42,10 @@ class VeiculoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Veiculo  $veiculo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Veiculo $veiculo)
+    public function show($id)
     {
         //
     }
@@ -52,10 +53,10 @@ class VeiculoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Veiculo  $veiculo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Veiculo $veiculo)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +65,10 @@ class VeiculoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Veiculo  $veiculo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Veiculo $veiculo)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +76,10 @@ class VeiculoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Veiculo  $veiculo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Veiculo $veiculo)
+    public function destroy($id)
     {
         //
     }

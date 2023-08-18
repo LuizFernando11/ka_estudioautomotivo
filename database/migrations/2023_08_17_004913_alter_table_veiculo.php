@@ -13,9 +13,9 @@ class AlterTableVeiculo extends Migration
      */
     public function up()
     {
-        Schema::table('veiculo', function (Blueprint $table) {
+        Schema::table('veiculos', function (Blueprint $table) {
             $table->unsignedBigInteger('cliente_id')->after('id');
-            $table->foreign('cliente_id')->references('id')->on('cliente');
+            $table->foreign('cliente_id')->references('id')->on('clientes');
         });
     }
 
@@ -26,7 +26,7 @@ class AlterTableVeiculo extends Migration
      */
     public function down()
     {
-        Schema::table('veiculo', function (Blueprint $table) {
+        Schema::table('veiculos', function (Blueprint $table) {
             $table->dropForeign('veiculo_cliente_id_foreign');
             $table->dropColumn('cliente_id');
         });

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+class Clientes extends Model
 {
     use HasFactory;
 
@@ -19,6 +19,6 @@ class Cliente extends Model
     ];
 
     function carros(){
-        return $this->hasMany(Veiculo::class);
+        return $this->hasMany(Veiculos::class);
     }
 }
