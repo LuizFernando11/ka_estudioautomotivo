@@ -15,7 +15,7 @@ class ClientesController extends Controller
     public function index()
     {
         $clientes = Clientes::all();
-        return view("cliente.index", ['clientes' => $clientes]);
+        return view("clientes.index", ['clientes' => $clientes]);
     }
 
     /**
@@ -25,7 +25,7 @@ class ClientesController extends Controller
      */
     public function create()
     {
-        //
+        return view('clientes.create');
     }
 
     /**
@@ -36,7 +36,12 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        Clientes::create($data);
+
+        $clientes = Clientes::all();
+        return view("clientes.index", ['clientes' => $clientes]);
     }
 
     /**
@@ -47,7 +52,8 @@ class ClientesController extends Controller
      */
     public function show($id)
     {
-        //
+        $cliente = Clientes::findOrFail($id);
+        return view('clientes.show', ['cliente' => $cliente]);
     }
 
     /**

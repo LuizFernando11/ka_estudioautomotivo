@@ -9,7 +9,8 @@
 <body>
 
 <table border=1 align="center">
-    <p>Clientes:</p>
+    <h1>Clientes:</h1><br>
+    <h3><a href="{{route('clientes.create')}}">Criar novo</a></h3>
     <thead>
         <tr>
             <th>Nome</th>
@@ -25,7 +26,7 @@
         <tr>
             <td><?= $cl->nome ?></td>
             <td><?= $cl->telefone ?></td>
-            <td><a href="">Visualizar</a></td>
+            <td><a href="{{route('clientes.show', $cl->id )}}">Visualizar</a></td>
             <td><a href="">Servicos</a></td>
         </tr>
         <?php
