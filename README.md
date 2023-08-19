@@ -14,3 +14,7 @@
 
     CRUD - Usuario, Cliente, veiculo, Servico e Financeiro.
     cliente pode ter varios veiculos e servicos.
+
+# Atlualizacao atual do sistema ----------
+
+    Cadastro de cliente, visualizacao, edicao e exclusão.
