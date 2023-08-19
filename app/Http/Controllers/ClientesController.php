@@ -64,7 +64,8 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente = Clientes::findOrFail($id);
+        return view('clientes.edit', ['cliente' => $cliente]);
     }
 
     /**
@@ -76,7 +77,12 @@ class ClientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cliente = Clientes::findOrFail($id);
+
+        $cliente->update($request->all());
+
+        $clientes = Clientes::all();
+        return view("clientes.index", ['clientes' => $clientes]);
     }
 
     /**
@@ -87,6 +93,10 @@ class ClientesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cliente = Clientes::findOrFail($id);
+        $cliente->delete();
+
+        $clientes = Clientes::all();
+        return view("clientes.index", ['clientes' => $clientes]);
     }
 }

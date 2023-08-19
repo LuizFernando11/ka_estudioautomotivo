@@ -16,8 +16,14 @@
     Cidade: {{$cliente->cidade}}<br>
     Estado: {{$cliente->estado}}<br><br>
 
-    <a href="">Novo Veiculo</a> - <a href="">Novo Servicos</a><br>
-    <a href="">Alterar</a> - <a href="">Excluir</a>
+    <a href="">Novo Veiculo</a> - <a href="">Novo Servicos</a><br><br>
+    <a href="{{route('clientes.edit', $cliente->id )}}">Alterar</a><br>
+    
+    <form action="{{route('clientes.destroy', $cliente)}}" method="post">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Deletar</button>
+    </form>
 
 </body>
 </html>
