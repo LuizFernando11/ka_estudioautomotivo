@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clientes;
 use Illuminate\Http\Request;
 
 class VeiculosController extends Controller
@@ -21,9 +22,23 @@ class VeiculosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($clienteId)
     {
-        //
+        $cliente = Clientes::findOrFail($clienteId);
+
+        return view('veiculos.create', ['cliente' => $cliente]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function novo($id)
+    {
+        $cliente = Clientes::findOrFail($id);
+        
+        return view('veiculos.create', ['cliente' => $cliente]);
     }
 
     /**

@@ -16,7 +16,7 @@
     Cidade: {{$cliente->cidade}}<br>
     Estado: {{$cliente->estado}}<br><br>
 
-    <a href="">Novo Veiculo</a> - <a href="">Novo Servicos</a><br><br>
+    <a href="{{route('veiculos.novo', $cliente->id)}}">Novo Veiculo</a> - <a href="">Novo Servicos</a><br><br>
     <a href="{{route('clientes.edit', $cliente->id )}}">Alterar</a><br>
     
     <form action="{{route('clientes.destroy', $cliente)}}" method="post">
