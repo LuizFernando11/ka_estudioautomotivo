@@ -20,4 +20,5 @@ class Veiculos extends Model
     {
         return $this->belongsTo(Clientes::class, 'cliente_id');
     }
+    
 }

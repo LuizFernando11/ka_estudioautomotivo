@@ -19,6 +19,6 @@ class Clientes extends Model
     ];
 
     public function veiculos(){
-        return $this->hasMany(Veiculos::class);
-    }
+        return $this->hasMany(Veiculos::class, 'cliente_id');
+    }   
 }
