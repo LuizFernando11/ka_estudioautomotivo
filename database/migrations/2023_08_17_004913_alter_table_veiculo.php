@@ -27,7 +27,7 @@ class AlterTableVeiculo extends Migration
     public function down()
     {
         Schema::table('veiculos', function (Blueprint $table) {
-            $table->dropForeign('veiculo_cliente_id_foreign');
+            $table->dropForeign('veiculos_cliente_id_foreign');
             $table->dropColumn('cliente_id');
         });
     }

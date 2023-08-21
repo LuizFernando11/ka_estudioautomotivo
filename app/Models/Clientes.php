@@ -18,7 +18,7 @@ class Clientes extends Model
         'estado'
     ];
 
-    function carros(){
+    public function veiculos(){
         return $this->hasMany(Veiculos::class);
     }
 }

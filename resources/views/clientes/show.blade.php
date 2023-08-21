@@ -16,6 +16,16 @@
     Cidade: {{$cliente->cidade}}<br>
     Estado: {{$cliente->estado}}<br><br>
 
+    <?php
+        if($cliente->veiculos->count() > 0){
+            foreach($cliente->veiculos as $veiculo):
+                echo $veiculo->tipo;
+                echo $veiculo->modelo;
+                echo $veiculo->placa;
+            endforeach;
+        }
+    ?>
+
     <a href="{{route('veiculos.novo', $cliente->id)}}">Novo Veiculo</a> - <a href="">Novo Servicos</a><br><br>
     <a href="{{route('clientes.edit', $cliente->id )}}">Alterar</a><br>
     

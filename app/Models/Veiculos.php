@@ -15,4 +15,9 @@ class Veiculos extends Model
         'modelo',
         'placa'
     ];
+
+    public function cliente()
+    {
+        return $this->belongsTo(Clientes::class, 'cliente_id');
+    }
 }
