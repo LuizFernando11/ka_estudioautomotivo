@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clientes;
+use App\Models\Veiculos;
 use Illuminate\Http\Request;
 
 class VeiculosController extends Controller
@@ -37,7 +38,7 @@ class VeiculosController extends Controller
     public function novo($id)
     {
         $cliente = Clientes::findOrFail($id);
-        
+
         return view('veiculos.create', ['cliente' => $cliente]);
     }
 
@@ -49,7 +50,12 @@ class VeiculosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        Veiculos::create($data);
+
+        $clientes = Clientes::all();
+        return view("clientes.index", ['clientes' => $clientes]);
     }
 
     /**

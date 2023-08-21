@@ -7,10 +7,16 @@
     <title>Novo Veiculo</title>
 </head>
 <body>
-    <h3>Veiculo de {{$cliente->nome}}</h3>
-    <form action="{{route('veiculos.store')}}" method="post">
+    <h3>Veiculo de {{$cliente->nome}} - {{ $cliente->id }}</h3>
+    <form action="{{ route('veiculos.store') }}" method="post">
         @csrf
-        <input  type="submit" value="Cadastrar">
+        <input type="hidden" name="cliente_id" value="{{ $cliente->id }}">
+
+        tipo: <input type="text" name="tipo"><br><br>
+        modelo: <input type="text" name="modelo"><br><br>
+        placa: <input type="text" name="placa"><br><br>
+
+        <button type="submit">Criar Veículo</button>
     </form>
 </body>
 </html>
