@@ -100,6 +100,10 @@ class VeiculosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $veiculo = Veiculos::findOrFail($id);
+        $veiculo->delete();
+
+        $clientes = Clientes::all();
+        return view("clientes.index", ['clientes' => $clientes]);
     }
 }

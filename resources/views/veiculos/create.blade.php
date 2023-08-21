@@ -7,7 +7,7 @@
     <title>Novo Veiculo</title>
 </head>
 <body>
-    <h3>Veiculo de {{$cliente->nome}} - {{ $cliente->id }}</h3>
+    <h3>Veiculo de {{$cliente->nome}}</h3>
     <form action="{{ route('veiculos.store') }}" method="post">
         @csrf
         <input type="hidden" name="cliente_id" value="{{ $cliente->id }}">

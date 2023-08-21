@@ -26,7 +26,12 @@
         ?>
                 Tipo: {{$veiculo->tipo}}<br>
                 Modelo: {{$veiculo->modelo}}<br>
-                Placa: {{$veiculo->placa}}<br><br>
+                Placa: {{$veiculo->placa}}<br>
+                <form action="{{route('veiculos.destroy', $veiculo->id)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Deletar</button>
+                </form><br><br>
         <?php
             endforeach;
         ?>
