@@ -20,5 +20,9 @@ class Clientes extends Model
 
     public function veiculos(){
         return $this->hasMany(Veiculos::class, 'cliente_id');
-    }   
+    } 
+    
+    public function servicos(){
+        return $this->hasMany(Servicos::class, 'cliente_id');
+    }
 }
