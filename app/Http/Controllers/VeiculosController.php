@@ -77,7 +77,8 @@ class VeiculosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $veiculo = Veiculos::findOrFail($id);
+        return view('veiculos.edit', ['veiculo' => $veiculo]);
     }
 
     /**
@@ -89,7 +90,12 @@ class VeiculosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $veiculo = Veiculos::findOrFail($id);
+
+        $veiculo->update($request->all());
+
+        $clientes = Clientes::all();
+        return view("clientes.index", ['clientes' => $clientes]);
     }
 
     /**
