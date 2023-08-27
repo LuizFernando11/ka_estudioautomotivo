@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\ServicosController;
 use App\Http\Controllers\VeiculosController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,10 @@ Route::get('/', function () {
 
 Route::resource('/clientes', ClientesController::class);
 
+Route::get('/clientes/{cliente}/servicos', [ClientesController::class, 'servicos'])->name('clientes.servicos');
+
 Route::resource('/veiculos', VeiculosController::class);
 
 Route::get('/veiculos/novo/{id}', [VeiculosController::class, 'novo'])->name('veiculos.novo');
+
+Route::resource('/servicos', ServicosController::class);

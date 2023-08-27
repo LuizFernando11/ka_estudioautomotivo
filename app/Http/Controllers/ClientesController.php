@@ -18,6 +18,14 @@ class ClientesController extends Controller
         return view("clientes.index", ['clientes' => $clientes]);
     }
 
+    public function servicos($id)
+    {
+        $cliente = Clientes::findOrFail($id);
+        $servicos = $cliente->servicos;
+
+        return view('clientes.servicos', ['cliente' => $cliente, 'servicos' => $servicos]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

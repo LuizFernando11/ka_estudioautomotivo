@@ -8,8 +8,9 @@
 </head>
 <body>
 
-<table border=1 align="center">
-    <h1>Clientes:</h1><br>
+<h1>Clientes:</h1>
+
+<table id="TabelaClientes" border=1 align="center">
     <h3><a href="{{route('clientes.create')}}">Criar novo</a></h3>
     <thead>
         <tr>
@@ -27,7 +28,7 @@
             <td><?= $cl->nome ?></td>
             <td><?= $cl->telefone ?></td>
             <td><a href="{{route('clientes.show', $cl->id )}}">Visualizar</a></td>
-            <td><a href="">Servicos</a></td>
+            <td><a href="{{route('clientes.servicos', $cl->id )}}">Servicos</a></td>
         </tr>
         <?php
             endforeach;
@@ -36,4 +37,5 @@
 </table>
 
 </body>
+
 </html>
