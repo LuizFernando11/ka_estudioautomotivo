@@ -12,7 +12,6 @@ class Servicos extends Model
     protected $fillable = [
         'cliente_id',
         'veiculo_id',
-        'data',
         'entrega',
         'solicitado',
         'realizado',

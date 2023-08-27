@@ -13,6 +13,9 @@
     <h1>Logo aki</h1>
 
     <a href="clientes">Clientes</a>
-    
+
+    <a href="{{route('servicos.create')}}">Novo serviço</a>
+
+
 </body>
 </html>
