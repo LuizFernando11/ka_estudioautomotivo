@@ -42,6 +42,12 @@ class VeiculosController extends Controller
         return view('veiculos.create', ['cliente' => $cliente]);
     }
 
+    public function buscarVeiculos(Request $request, $clienteId)
+    {
+        $veiculos = Veiculos::where('cliente_id', $clienteId)->get();
+        return response()->json($veiculos);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

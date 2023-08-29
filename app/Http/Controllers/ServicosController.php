@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Servicos;
+use App\Models\Clientes;
 use Illuminate\Http\Request;
 
 class ServicosController extends Controller
@@ -24,7 +25,8 @@ class ServicosController extends Controller
      */
     public function create()
     {
-        return view('servicos.create');
+        $clientes = Clientes::all();
+        return view('servicos.create', ['clientes' => $clientes]);
     }
 
     /**

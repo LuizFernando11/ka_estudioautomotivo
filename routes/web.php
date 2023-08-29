@@ -28,4 +28,6 @@ Route::resource('/veiculos', VeiculosController::class);
 
 Route::get('/veiculos/novo/{id}', [VeiculosController::class, 'novo'])->name('veiculos.novo');
 
+Route::get('/buscar-veiculos/{clienteId}',  [VeiculosController::class, 'buscarVeiculos']);
+
 Route::resource('/servicos', ServicosController::class);
