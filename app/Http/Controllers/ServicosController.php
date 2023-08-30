@@ -37,7 +37,12 @@ class ServicosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        Servicos::create($data);
+
+        $clientes = Clientes::all();
+        return view("clientes.index", ['clientes' => $clientes]);
     }
 
     /**

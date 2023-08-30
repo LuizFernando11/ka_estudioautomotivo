@@ -12,7 +12,7 @@
         @csrf
 
         Cliente:
-            <select name="clientes" id="clientes">
+            <select name="cliente_id" id="cliente_id">
                 <option value="">Selecione um cliente</option>
                 <?php
                     foreach ($clientes as $cliente):
@@ -24,7 +24,7 @@
             </select>
         <br><br>
         Veiculo:
-            <select name="veiculos" id="veiculos">
+            <select name="veiculo_id" id="veiculo_id">
                 <option value="">Selecione um veículo</option>
             </select>
         <br><br>
@@ -40,10 +40,10 @@
     </form>
 
     <script>
-        document.getElementById('clientes').addEventListener('change', function() {
+        document.getElementById('cliente_id').addEventListener('change', function() {
             var selectedClientId = this.value;
             //console.log('Selected client ID:', selectedClientId);
-            var veiculosSelect = document.getElementById('veiculos');
+            var veiculosSelect = document.getElementById('veiculo_id');
 
             // Limpa as opções atuais do select de veículos
             veiculosSelect.innerHTML = '';
