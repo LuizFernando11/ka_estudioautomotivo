@@ -22,8 +22,9 @@ class ClientesController extends Controller
     {
         $cliente = Clientes::findOrFail($id);
         $servicos = $cliente->servicos;
+        $veiculos = $cliente->veiculos;
 
-        return view('clientes.servicos', ['cliente' => $cliente, 'servicos' => $servicos]);
+        return view('clientes.servicos', ['cliente' => $cliente, 'servicos' => $servicos, 'veiculos' => $veiculos]);
     }
 
     /**
