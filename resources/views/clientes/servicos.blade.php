@@ -19,33 +19,70 @@
         <?php
             foreach($servicos as $servico):
         ?>
-            Servico aberto dia: {{$servico->created_at}}<br><br>
-
             <?php
                 foreach ($veiculos as $veiculo):
                     if($veiculo->id == $servico->veiculo_id):
             ?>
-                Veiculo:<br>
-                Tipo: {{$veiculo->tipo}}, Modelo: {{$veiculo->modelo}}, Placa: {{$veiculo->placa}}<br><br>
+                <table id="TabelaExibirVeiculoServicos" border=1 align="center">
+                    <h3>Veiculo</h3>
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Modelo</th>
+                            <th>Placa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{$veiculo->tipo}}</td>
+                            <td>{{$veiculo->modelo}}</td>
+                            <td>{{$veiculo->placa}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             <?php
                 endif;
                 endforeach;
             ?>
-            Serviço solicitado: {{$servico->solicitado}}<br>
-            Prazo de entrega: {{$servico->entrega}} horas.<br>
-            Serviço realizado: {{$servico->realizado}}<br>
-            Feito por: {{$servico->feitopor}}<br>
-            Observações sobre o serviço: {{$servico->obsfinais}}<br>
-            Valor: {{$servico->valor}}<br>
-            Desconto: {{$servico->desconto}}<br>
-            Valor final: {{$servico->valor - $servico->desconto}}<br>
 
-            <form action="{{route('servicos.destroy', $servico->id)}}" method="post">
-                <a class="btn btn-primary" href="{{route('servicos.edit', $servico->id )}}" role="button">Alterar</a>
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-primary">Deletar</button>
-            </form><br><br>
+            <table id="TabelaExibirServicos" border=1 align="center">
+                <h3>Serviço</h3>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Serviço solicitado</th>
+                        <th>Prazo de entrega</th>
+                        <th>Serviço realizado</th>
+                        <th>Feito por</th>
+                        <th>Observações sobre o serviço</th>
+                        <th>Valor:</th>
+                        <th>Desconto</th>
+                        <th>Valor final</th>
+                        <th>Alterar</th>
+                        <th>Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{$servico->created_at}}</td>
+                        <td>{{$servico->solicitado}}</td>
+                        <td>{{$servico->entrega}}</td>
+                        <td>{{$servico->realizado}}</td>
+                        <td>{{$servico->feitopor}}</td>
+                        <td>{{$servico->obsfinais}}</td>
+                        <td>{{$servico->valor}}</td>
+                        <td>{{$servico->desconto}}</td>
+                        <td>{{$servico->valor - $servico->desconto}}</td>
+                        <td><a class="btn btn-primary" href="{{route('servicos.edit', $servico->id )}}" role="button">X</a></td>
+                        <td><form action="{{route('servicos.destroy', $servico->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-primary">X</button>
+                        </form></td>
+                    </tr>
+                </tbody>
+            </table>
+
         <?php
            endforeach;
         ?>
@@ -61,3 +98,4 @@
 
 </body>
 </html>
+
