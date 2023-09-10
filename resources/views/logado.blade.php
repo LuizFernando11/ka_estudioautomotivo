@@ -13,11 +13,12 @@
         <h1>Logo aki</h1>
     </div>
     <div>
-        <a href="login">login</a>
-    </div>
-    <div>
         <h1>KA Estudio Automotivo</h1>
     </div>
+
+    <a href="{{route('clientes.index')}}">Clientes</a>
+
+    <a href="{{route('servicos.create')}}">Novo serviço</a>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

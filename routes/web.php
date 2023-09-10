@@ -20,14 +20,24 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::resource('/clientes', ClientesController::class);
+Route::get('/logado', function () {
+    return view('logado');
+})->middleware(['auth']);
 
-Route::get('/clientes/{cliente}/servicos', [ClientesController::class, 'servicos'])->name('clientes.servicos');
+Route::resource('/clientes', ClientesController::class)->middleware(['auth']);
 
-Route::resource('/veiculos', VeiculosController::class);
+Route::get('/clientes/{cliente}/servicos', [ClientesController::class, 'servicos'])->name('clientes.servicos')->middleware(['auth']);
 
-Route::get('/veiculos/novo/{id}', [VeiculosController::class, 'novo'])->name('veiculos.novo');
+Route::resource('/veiculos', VeiculosController::class)->middleware(['auth']);
 
-Route::get('/buscar-veiculos/{clienteId}',  [VeiculosController::class, 'buscarVeiculos']);
+Route::get('/veiculos/novo/{id}', [VeiculosController::class, 'novo'])->name('veiculos.novo')->middleware(['auth']);
 
-Route::resource('/servicos', ServicosController::class);
+Route::get('/buscar-veiculos/{clienteId}',  [VeiculosController::class, 'buscarVeiculos'])->middleware(['auth']);
+
+Route::resource('/servicos', ServicosController::class)->middleware(['auth']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
