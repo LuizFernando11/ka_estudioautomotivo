@@ -41,3 +41,17 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/home', function () {
+    return view('index');
+});
+Route::get('/sobre', function () {
+    return view('pagesStaticasDeslogadas\sobre');
+});
+Route::get('/contato', function () {
+    return view('pagesStaticasDeslogadas\contato');
+});
+Route::get('/endereco', function () {
+    return view('pagesStaticasDeslogadas\endereco');
+});

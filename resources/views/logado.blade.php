@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <title>KA_Estudio Web</title>
 </head>
-<body>
+<body class="fundo">
 
-    <div>
-        <h1>Logo aki</h1>
-    </div>
-    <div>
-        <h1>KA Estudio Automotivo</h1>
-    </div>
+    @component("components.logo")
+    @endcomponent
 
     <a href="{{route('clientes.index')}}">Clientes</a>
 
     <a href="{{route('servicos.create')}}">Novo serviço</a>
+
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+
+            <x-responsive-nav-link :href="route('logout')"
+                onclick="event.preventDefault();
+                this.closest('form').submit();">
+                {{ __('Log Out') }}
+            </x-responsive-nav-link>
+        </form>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
